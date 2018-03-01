@@ -3,11 +3,11 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.component';
 import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
-import { TodoService } from './todo.service';
+import { TodoService } from './todo/todo.service';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { Todo } from './todo';
+import { Todo } from './todo/todo';
 
 describe('AppComponent', () => {
   beforeEach(() => {

@@ -12,7 +12,7 @@
         "favicon.ico",
         {
           "input": "../lib",
-          "glob": "**/loader.js",
+          "glob": "**/*.js",
           "output": "."
         }
       ],

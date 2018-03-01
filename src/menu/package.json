@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "build": "ng build --prod && npm run bundle-loader-prod",
-    "build-aot": "ng build --prod --aot && npm run bundle-loader-prod",
+    "build": "ng build --extract-css=false --prod && npm run bundle-loader-prod",
+    "build-aot": "ng build --extract-css=false --prod --aot && npm run bundle-loader-prod",
     "bundle-loader": "webpack",
     "bundle-loader-prod": "node scripts_list_creator.js && npm run bundle-loader -- --env.NODE_ENV=production && cpx \"lib/loader.js\" dist",
     "prod-server": "npm run build && node server.js",
