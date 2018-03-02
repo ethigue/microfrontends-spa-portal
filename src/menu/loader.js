@@ -13,6 +13,7 @@ if (prod) {
     }
 }
 const lifecycles = singleSpaAngularCli({
+    name: 'menu',
     selector: 'menu-root',
     baseScriptUrl: '/menu',
     scripts
@@ -28,4 +29,9 @@ export const mount = [
 
 export const unmount = [
     lifecycles.unmount
+];
+
+
+export const unload = [
+    lifecycles.unload
 ];

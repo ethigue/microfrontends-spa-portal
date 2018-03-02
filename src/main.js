@@ -1,5 +1,5 @@
 import { registerApplication, start } from 'single-spa';
-import { mainRegisterApplication, singleSpaAngularCliRouter } from 'single-spa-angular-cli/lib/utils';
+import { singleSpaAngularCliRouter } from 'single-spa-angular-cli/lib/utils';
 import { eachSeries } from 'async';
 import GlobalStoreEventDistributor from './GlobalStoreEventDistributor';
 import GlobalEventBus from './GlobalEventBus'
@@ -11,23 +11,23 @@ function init() {
     const globalStoreEventDistributor = new GlobalStoreEventDistributor();
     const globalEventBus = new GlobalEventBus();
     let store = {};
-    start();
     //load the apps
     eachSeries(appStructure.items, async (element, callback) => {
-        const { appName, appUrl, route, storeUrl, isMain } = element;
+        const { appName, appUrl, route, storeUrl } = element;
         let store;
         
-        const registerApp = isMain ? mainRegisterApplication : loadNotMain;
-
         if (storeUrl) {
            store = await loadStore(storeUrl, globalStoreEventDistributor);
         }
-        registerApp(appName, () => SystemJS.import(appUrl), singleSpaAngularCliRouter.hashPrefix(route, true), store).then(() => {
+
+        loadNotMain(appName, () => SystemJS.import(appUrl), singleSpaAngularCliRouter.hashPrefix(route, true), store).then(() => {
             callback();
         });
     }, err => {
         if (err) console.log('Is not possible to mount the apps', err);
     });
+
+    start();
 }
 
 const loadNotMain = (appName, importFunc, routeFunc, store) => {

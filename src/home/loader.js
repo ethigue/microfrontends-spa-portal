@@ -14,6 +14,7 @@ if (prod) {
 }
 
 const lifecycles = singleSpaAngularCli({
+    name: 'home',
     selector: 'home-root',
     baseScriptUrl: '/home',
     scripts
@@ -29,4 +30,8 @@ export const mount = [
 
 export const unmount = [
     lifecycles.unmount
+];
+
+export const unload = [
+    lifecycles.unload
 ];
