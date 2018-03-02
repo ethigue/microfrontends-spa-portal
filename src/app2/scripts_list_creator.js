@@ -5,21 +5,23 @@ const path = require('path');
 const regexSort = require("regex-sort");
 const folder = path.resolve(__dirname, 'dist');
 
-let result;
+let result = {};
 
 //get the list of files and order it
 if (fs.existsSync(folder)) {
-    var files = fs.readdirSync(folder).filter(function(file) {
+    var files = fs.readdirSync(folder).filter( file => {
         //return only the .js and .css files
         return /^(?!(loader|menu)).*\.(js|css)$/.test(file.toLowerCase());
     });
     
     //sort the array,the angular-cli bundles needs to be loaded following a specific order
-    result = regexSort(files, [
+    result.scripts = regexSort(files.filter( file => !(/^.*\.css$/.test(file))), [
         /^inline.*\.js$/,
-        /^(?!(inline|main|loader|menu)).*\.(js|css)$/
+        /^(?!(inline|main|loader|menu)).*\.js$/
       , /^main.*\.js$/
     ]);
+
+    result.styles = files.filter( file => /^.*\.css$/.test(file));
 }
 
 fs.writeFileSync("./lib/bundle_list.json", JSON.stringify(result), 'utf8', function (err) {

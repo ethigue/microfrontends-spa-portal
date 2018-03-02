@@ -94,8 +94,8 @@ module.exports = env => {
     }, commonConfig),
     Object.assign({
       entry: {
-        //add here extra packages when needed, remove it from scripts_list_creator regex
-        menu: "./src/app/menu/menu.ts"
+        //add here extra packages when needed, add it in the scripts_list_creator files filter to exclude it from the build
+        menu: "./src/dev-apps/menu.ts"
       },
       output: {
         path: __dirname + "/lib",

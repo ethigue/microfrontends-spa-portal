@@ -2,14 +2,14 @@ import singleSpaAngularCli from 'single-spa-angular-cli';
 
 const prod = NODE_ENV;
 
-let scripts = require("./bundle_list.json");;
+let list = require("./bundle_list.json");;
 
 if (prod) {
     try {
-        scripts = require("./lib/bundle_list.json");
+        list = require("./lib/bundle_list.json");
     }
     catch (e) {
-        scripts = []
+        list = []
     }
 }
 
@@ -17,7 +17,7 @@ const lifecycles = singleSpaAngularCli({
     name: 'home',
     selector: 'home-root',
     baseScriptUrl: '/home',
-    scripts
+    ... list
 });
 
 export const bootstrap = [
