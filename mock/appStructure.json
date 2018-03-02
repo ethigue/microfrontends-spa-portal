@@ -6,35 +6,35 @@
             "appUrl": "http://localhost:4200/loader.js",
             "route": "/**",
             "storeUrl": null,
-            "isMain": true
+            "isDefaultPage": false
         },
         {
             "appName": "home",
             "appUrl": "http://localhost:4201/loader.js",
             "route": "/home",
             "storeUrl": null,
-            "isMain": false
+            "isDefaultPage": true
         },
         {
             "appName": "app2",
             "appUrl": "http://localhost:4203/loader.js",
             "route": "/app2",
             "storeUrl": null,
-            "isMain": false
+            "isDefaultPage": false
         },
         {
             "appName": "app1",
             "appUrl": "http://localhost:9001/main.js",
             "route": "/app1",
             "storeUrl": "/app1/store.js",
-            "isMain": false
+            "isDefaultPage": false
         },
         {
             "appName": "app3",
             "appUrl": "http://localhost:9002/main.js",
             "route": "/app2",
             "storeUrl": "/app3/store.js",
-            "isMain": false
+            "isDefaultPage": false
         }
 
     ]

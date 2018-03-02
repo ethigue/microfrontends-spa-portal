@@ -12,28 +12,19 @@ function init() {
     const globalEventBus = new GlobalEventBus();
     let store = {};
     //load the apps
-    eachSeries(appStructure.items, async (element, callback) => {
-        const { appName, appUrl, route, storeUrl } = element;
+    appStructure.items.forEach(async element => {
+        const { appName, appUrl, route, storeUrl, isDefaultPage } = element;
         let store;
         
         if (storeUrl) {
            store = await loadStore(storeUrl, globalStoreEventDistributor);
         }
 
-        loadNotMain(appName, () => SystemJS.import(appUrl), singleSpaAngularCliRouter.hashPrefix(route, true), store).then(() => {
-            callback();
-        });
-    }, err => {
-        if (err) console.log('Is not possible to mount the apps', err);
+        registerApplication(appName, () => SystemJS.import(appUrl), singleSpaAngularCliRouter.hashPrefix(route, isDefaultPage), store);
     });
 
     start();
 }
-
-const loadNotMain = (appName, importFunc, routeFunc, store) => {
-    registerApplication(appName, importFunc, routeFunc, store)
-    return Promise.resolve();
-};
 
 const loadStore = async (storeURL, globalStoreEventDistributor) => {
     // import the store module

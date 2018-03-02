@@ -1,1 +1,1 @@
-["inline.bundle.js", "polyfills.bundle.js", "styles.bundle.js", "vendor.bundle.js", "main.bundle.js"]
+{ "scripts": ["inline.bundle.js", "polyfills.bundle.js", "styles.bundle.js", "vendor.bundle.js", "main.bundle.js"] }

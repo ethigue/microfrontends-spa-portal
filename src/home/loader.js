@@ -9,7 +9,7 @@ if (prod) {
         list = require("./lib/bundle_list.json");
     }
     catch (e) {
-        list = []
+        list = {}
     }
 }
 
