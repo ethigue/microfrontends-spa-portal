@@ -10,7 +10,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-// Router is not mandatory, only if you use a router for your app1
-singleSpaAngularCliPlatform.mount('app2-root', Router).subscribe((attachUnmount) => {
-  platformBrowserDynamic().bootstrapModule(AppModule).then(attachUnmount);
+singleSpaAngularCliPlatform.mount('app2', Router).subscribe( ({ props, attachUnmount }) => {
+  platformBrowserDynamic().bootstrapModule(AppModule).then( module => {
+    attachUnmount(module);
+  });
 });

@@ -35,10 +35,10 @@
   },
   "dependencies": {
     "async": "^2.6.0",
-    "copy-webpack-plugin": "^4.4.2",
+    "copy-webpack-plugin": "^4.5.0",
     "eventing-bus": "1.2.0",
     "single-spa": "^3.9.0",
-    "single-spa-angular-cli": "0.2.0",
+    "single-spa-angular-cli": "^0.2.3",
     "systemjs": "^0.21.0",
     "zone.js": "^0.8.14"
   }

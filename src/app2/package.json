@@ -17,7 +17,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-redux/store": "^7.1.0",
+    "@angular-redux/store": "^7.1.1",
     "@angular/animations": "^5.2.7",
     "@angular/cdk": "^5.2.3",
     "@angular/common": "^5.2.7",
@@ -32,7 +32,7 @@
     "core-js": "^2.4.1",
     "redux": "^3.7.2",
     "rxjs": "^5.5.6",
-    "single-spa-angular-cli": "0.2.0"
+    "single-spa-angular-cli": "^0.2.3"
   },
   "devDependencies": {
     "@angular/cli": "1.6.8",
@@ -47,11 +47,11 @@
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
-    "codelyzer": "^4.0.1",
+    "codelyzer": "^4.2.1",
     "cpx": "1.5.0",
     "css-loader": "^0.28.10",
     "express": "^4.16.2",
-    "file-loader": "^1.1.10",
+    "file-loader": "^1.1.11",
     "file-system": "^2.2.2",
     "html-loader": "^0.5.5",
     "jasmine-core": "~2.8.0",
