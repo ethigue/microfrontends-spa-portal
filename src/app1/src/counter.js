@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import EventBus from 'eventing-bus/lib/window_event_stream';
-import eventsConstants from "../../../mock/events.json";
 
 class Counter extends React.Component {
 
@@ -23,7 +22,12 @@ class Counter extends React.Component {
 
     
     dispatchChangePath = () => {
-        EventBus.publish(eventsConstants.CHANGEPATH, "app2");
+        EventBus.publish(this.props.eventsConstants.CHANGE_PATH, { 
+            app: "app2",
+            action: "active",
+            args: { title: 3 },
+            query: { "testQuery": 1 }
+        });
     };
 
     render() {

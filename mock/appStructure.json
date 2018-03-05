@@ -4,36 +4,37 @@
         {
             "appName": "menu",
             "appUrl": "http://localhost:4200/loader.js",
-            "route": "/**",
+            "baseUrl": "/**",
             "storeUrl": null,
             "isDefaultPage": false
         },
         {
             "appName": "home",
             "appUrl": "http://localhost:4201/loader.js",
-            "route": "/home",
+            "baseUrl": "/home",
             "storeUrl": null,
             "isDefaultPage": true
         },
         {
             "appName": "app2",
             "appUrl": "http://localhost:4203/loader.js",
-            "route": "/app2",
+            "baseUrl": "/app2",
             "storeUrl": null,
-            "isDefaultPage": false
+            "isDefaultPage": false,
+            "routesConfig": "http://localhost:4203/routes.json"
         },
         {
             "appName": "app1",
             "appUrl": "http://localhost:9001/main.js",
-            "route": "/app1",
-            "storeUrl": "/app1/store.js",
+            "baseUrl": "/app1",
+            "storeUrl": "http://localhost:9001/store.js",
             "isDefaultPage": false
         },
         {
             "appName": "app3",
             "appUrl": "http://localhost:9002/main.js",
-            "route": "/app2",
-            "storeUrl": "/app3/store.js",
+            "baseUrl": "/app2",
+            "storeUrl": "http://localhost:9002/store.js",
             "isDefaultPage": false
         }
 

@@ -1,0 +1,7 @@
+{ 
+    "app2": {
+        "active": "/active/{{title}}",
+        "all": "/all",
+        "completed": "/completed"
+    }
+}

@@ -4,8 +4,14 @@ import { eachSeries } from 'async';
 import GlobalStoreEventDistributor from './GlobalStoreEventDistributor';
 import GlobalEventBus from './GlobalEventBus'
 import appStructure from '../mock/appStructure.json';
+import eventsConstants from "../mock/events.json";
 import 'babel-polyfill';
 import 'zone.js';
+
+SystemJS.config({
+    map: { 'json': '../node_modules/systemjs-plugin-json/json.js' },
+    meta: { '*.json': { loader: 'json' } }
+  });
 
 function init() {
     const globalStoreEventDistributor = new GlobalStoreEventDistributor();
@@ -13,14 +19,21 @@ function init() {
     let store = {};
     //load the apps
     appStructure.items.forEach(async element => {
-        const { appName, appUrl, route, storeUrl, isDefaultPage } = element;
+        const { appName, appUrl, baseUrl, storeUrl, isDefaultPage, routesConfig } = element;
         let store;
         
         if (storeUrl) {
            store = await loadStore(storeUrl, globalStoreEventDistributor);
         }
 
-        registerApplication(appName, () => SystemJS.import(appUrl), singleSpaAngularCliRouter.hashPrefix(route, isDefaultPage), store);
+        if (routesConfig) {
+            const routes = await SystemJS.import(`${routesConfig}!json`);
+            //setting the baseUrl of the app
+            routes[appName].baseUrl = baseUrl;
+            globalEventBus.registerRoutes(routes);
+        }
+
+        registerApplication(appName, () => SystemJS.import(appUrl), singleSpaAngularCliRouter.hashPrefix(baseUrl, isDefaultPage), { baseUrl, eventsConstants, ...store } );
     });
 
     start();

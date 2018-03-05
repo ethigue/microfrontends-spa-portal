@@ -14,7 +14,8 @@
           "input": "../lib",
           "glob": "**/*.js",
           "output": "."
-        }
+        },
+        "routes.json"
       ],
       "index": "index.html",
       "main": "main.ts",

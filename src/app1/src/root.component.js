@@ -6,7 +6,7 @@ import reactLogo from '../assets/react-logo.png'
 
 export default class Root extends React.Component {
 
-    state = {store: null, globalStoreEventDistributor: null};
+    state = {store: null, globalStoreEventDistributor: null, eventsConstants: {}};
 
     componentDidCatch(error, info) {
         console.log(error, info);
@@ -20,6 +20,10 @@ export default class Root extends React.Component {
         this.setState({... this.state, globalStoreEventDistributor });
     }
 
+    setEventsConstants(eventsConstants) {
+        this.setState({... this.state, eventsConstants });
+    }
+
     render() {
 
         let ret = <app1-root></app1-root>;
@@ -30,7 +34,10 @@ export default class Root extends React.Component {
                     <div style={{marginTop: 100}}>
                         <img src={reactLogo} style={{width: 100}}/> <br />
                         This was rendered by App1, which is written in React.
-                        <Counter globalStoreEventDistributor={this.state.globalStoreEventDistributor}/>
+                        <Counter 
+                            globalStoreEventDistributor={this.state.globalStoreEventDistributor}
+                            eventsConstants={this.state.eventsConstants}
+                        />
                     </div>
                 </Provider>
         }

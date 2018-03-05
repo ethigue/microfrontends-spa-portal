@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { forwardRef, Inject, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -17,29 +17,42 @@ import { BaseRequestOptions } from '@angular/http';
 import { TodoComponent } from './todo/todo.component';
 
 import { Routing } from './app.routing';
+import { Globals } from "../globals.service";
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    TodoListComponent,
-    TodoListFooterComponent,
-    TodoListHeaderComponent,
-    TodoListItemComponent,
-    TodoComponent,
-  ],
-  imports: [
-    Routing,
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [
-    TodoService,
-    // providers used to create fake backend
-    fakeBackendProvider,
-    MockBackend,
-    BaseRequestOptions
-  ],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+export function createAppModule(baseUrl) {
+  @NgModule({
+    declarations: [
+      AppComponent,
+      TodoListComponent,
+      TodoListFooterComponent,
+      TodoListHeaderComponent,
+      TodoListItemComponent,
+      TodoComponent,
+    ],
+    imports: [
+      Routing.forRoot(baseUrl),
+      BrowserModule,
+      FormsModule,
+      HttpModule
+    ],
+    providers: [
+      TodoService,
+      // providers used to create fake backend
+      fakeBackendProvider,
+      MockBackend,
+      BaseRequestOptions,
+      Globals
+    ],
+    bootstrap: [AppComponent]
+  })
+
+  class AppModule {
+    constructor(@Inject(forwardRef(() => Globals)) private globals:Globals) {}
+    
+    setEventsConstants(eventsConstants) {
+      this.globals.eventsConstants = eventsConstants;
+    }
+  }
+
+  return AppModule;
+}

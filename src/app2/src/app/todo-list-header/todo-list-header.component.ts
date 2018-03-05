@@ -1,5 +1,6 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { Todo } from '../todo/todo';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todo-list-header',
@@ -9,11 +10,20 @@ import { Todo } from '../todo/todo';
 export class TodoListHeaderComponent {
 
   newTodo: Todo = new Todo();
+  extraTitle: string = '';
 
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
 
-  constructor() {
+  constructor(
+    private route: ActivatedRoute
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.extraTitle = params['extraTitle'];
+    });
   }
 
   addTodo() {

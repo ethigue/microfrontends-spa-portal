@@ -1,3 +1,4 @@
 {
-    "CHANGEPATH": "changePathEvent"
+    "CHANGE_PATH": "changePathEvent",
+    "REGISTER_ROUTES": "registerRoutes"
 }
