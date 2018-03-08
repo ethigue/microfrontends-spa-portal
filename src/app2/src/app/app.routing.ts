@@ -13,17 +13,18 @@ const routes: Routes = [
   { path: '', redirectTo: 'all', pathMatch: 'full' }
 ];
 
+
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { useHash: true })],
+    imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
+
 export class Routing { 
     public static forRoot(baseUrl): ModuleWithProviders {
         return {
             ngModule: Routing,
             providers: [
-                { provide: LocationStrategy, useClass: HashLocationStrategy },
-                { provide: APP_BASE_HREF, useValue: baseUrl }
+                { provide: APP_BASE_HREF, useValue: '/app2' }
             ],
         }
     }

@@ -1,5 +1,5 @@
 import { registerApplication, start } from 'single-spa';
-import { singleSpaAngularCliRouter } from 'single-spa-angular-cli/lib/utils';
+import { router } from 'single-spa-angular-cli';
 import { eachSeries } from 'async';
 import GlobalStoreEventDistributor from './GlobalStoreEventDistributor';
 import GlobalEventBus from './GlobalEventBus'
@@ -33,7 +33,7 @@ function init() {
             globalEventBus.registerRoutes(routes);
         }
 
-        registerApplication(appName, () => SystemJS.import(appUrl), singleSpaAngularCliRouter.hashPrefix(baseUrl, isDefaultPage), { baseUrl, eventsConstants, ...store } );
+        registerApplication(appName, () => SystemJS.import(appUrl), router.matchRoute(baseUrl, isDefaultPage), { baseUrl, eventsConstants, ...store } );
     });
 
     start();
