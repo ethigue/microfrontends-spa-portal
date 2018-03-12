@@ -8,7 +8,8 @@ module.exports = env => {
 
   let plugins = [
     new webpack.DefinePlugin({
-      'NODE_ENV': JSON.stringify(!dev)
+      'NODE_ENV': JSON.stringify(!dev),
+      'HOST': JSON.stringify(env && env.HOST) || "http://localhost:4203"
     }),
     new ContextReplacementPlugin(
       /(.+)?angular(\\|\/)core(.+)?/,

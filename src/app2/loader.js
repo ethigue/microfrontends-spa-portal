@@ -1,23 +1,9 @@
-import singleSpaAngularCli from 'single-spa-angular-cli';
+import {loader} from 'single-spa-angular-cli';
 
-const prod = NODE_ENV;
-
-let list = require("./bundle_list.json");;
-
-if (prod) {
-    try {
-        list = require("./lib/bundle_list.json");
-    }
-    catch (e) {
-        list = {}
-    }
-}
-
-const lifecycles = singleSpaAngularCli({
+const lifecycles = loader({
     name: 'app2',
     selector: 'app2-root',
-    baseScriptUrl: '/app2',
-    ... list
+    baseHref: "http://localhost:4203"
 });
 
 export const bootstrap = [
