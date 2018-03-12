@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
+
+declare const location: any;
+declare const history: any;
 
 @Component({
   selector: 'menu-root',
@@ -6,5 +9,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'menu';
+
+  constructor(private ngZone: NgZone) {
+
+  }
+
+  navigate(path: string, event: Event): void {
+    this.ngZone.runOutsideAngular(() => {
+      history.pushState(null, null, path);
+      event.stopPropagation();
+      event.preventDefault();
+    });
+  }
 }

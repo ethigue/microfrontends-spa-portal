@@ -19,7 +19,6 @@ import { TodoComponent } from './todo/todo.component';
 import { Routing } from './app.routing';
 import { Globals } from "../globals.service";
 
-export function createAppModule(baseUrl) {
   @NgModule({
     declarations: [
       AppComponent,
@@ -30,7 +29,7 @@ export function createAppModule(baseUrl) {
       TodoComponent,
     ],
     imports: [
-      Routing.forRoot(baseUrl),
+      Routing.forRoot("/app2"),
       BrowserModule,
       FormsModule,
       HttpModule
@@ -46,7 +45,7 @@ export function createAppModule(baseUrl) {
     bootstrap: [AppComponent]
   })
 
-  class AppModule {
+export  class AppModule {
     constructor(@Inject(forwardRef(() => Globals)) private globals:Globals) {}
     
     setEventsConstants(eventsConstants) {
@@ -54,5 +53,5 @@ export function createAppModule(baseUrl) {
     }
   }
 
-  return AppModule;
-}
+
+
