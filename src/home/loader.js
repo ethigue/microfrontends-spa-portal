@@ -3,7 +3,7 @@ import {loader} from 'single-spa-angular-cli';
 const lifecycles = loader({
     name: 'home',
     selector: 'home-root',
-    outputPath: "http://localhost:4201"
+    baseHref: "http://localhost:4201"
 });
 
 export const bootstrap = [

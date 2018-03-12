@@ -1,0 +1,5 @@
+mat-card {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+}

@@ -31,7 +31,7 @@
     "eventing-bus": "1.2.0",
     "redux": "^3.7.2",
     "rxjs": "^5.5.6",
-    "single-spa-angular-cli": "^0.3.2"
+    "single-spa-angular-cli": "^0.4.0"
   },
   "devDependencies": {
     "@angular/cli": "1.6.8",
@@ -39,7 +39,7 @@
     "@angular/language-service": "^5.2.8",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
-    "@types/node": "^6.0.101",
+    "@types/node": "^6.0.102",
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.5.0",
     "babel-core": "^6.25.0",
