@@ -15,7 +15,7 @@ export default class GlobalBus {
         const { action, app, args, query } = obj;
         const uri = Strings.substitute(this.routes[app][action], args);
         const queryString = Strings.queryfy(query);
-        navigateToUrl(`#${this.routes[app].baseUrl}${uri}${queryString}`);
+        navigateToUrl(`${this.routes[app].baseUrl}${uri}${queryString}`);
         
     }
 
