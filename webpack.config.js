@@ -18,12 +18,7 @@ module.exports = {
     proxy: {
       "/menu": {
         target: "http://localhost:4200",
-        pathRewrite: {"/menu" : ""},
-        bypass: function (req, res, proxyOptions) {
-          if (req.headers.accept.indexOf('html') !== -1) {
-            return '/index.html';
-          }
-        }
+        pathRewrite: {"/menu" : ""}
       },
       "/home": {
           target: "http://localhost:4201",
@@ -36,30 +31,19 @@ module.exports = {
       },
       "/app2": {
         target: "http://localhost:4203",
-        pathRewrite: {"/app2" : ""},
-        bypass: function (req, res, proxyOptions) {
-          if (req.headers.accept.indexOf('html') !== -1) {
-            return '/index.html';
-          }
-        }
+        pathRewrite: {"/app2" : ""}
       },
       "/app1": {
         target: "http://localhost:9001",
-        pathRewrite: {"/app1" : ""},
-        bypass: function (req, res, proxyOptions) {
-          if (req.headers.accept.indexOf('html') !== -1) {
-            return '/index.html';
-          }
-        }
+        pathRewrite: {"/app1" : ""}
       },
       "/app3": {
         target: "http://localhost:9002",
-        pathRewrite: {"/app3" : ""},
-        bypass: function (req, res, proxyOptions) {
-          if (req.headers.accept.indexOf('html') !== -1) {
-            return '/index.html';
-          }
-        }
+        pathRewrite: {"/app3" : ""}
+      },
+      "/app4": {
+        target: "http://localhost:9004",
+        pathRewrite: {"/app4" : ""}
       }
     },
   },

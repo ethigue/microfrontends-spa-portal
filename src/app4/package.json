@@ -1,0 +1,45 @@
+{
+  "name": "app4-vue-spa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "watch:standalone": "vue-cli-service serve",
+    "build:standalone": "vue-cli-service build",
+    "start": "webpack-dev-server --port 9004",
+    "build:portal": "webpack -p --progress",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "single-spa-vue": "^1.0.1",
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
+    "@vue/cli-service": "^3.0.0-beta.6",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.2"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

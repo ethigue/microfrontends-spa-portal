@@ -31,7 +31,7 @@ export default class Root extends React.Component {
         if (this.state.store && this.state.globalStoreEventDistributor) {
             ret =
                 <Provider store={this.state.store}>
-                    <div className="container" style={{marginTop: 100}}>
+                    <div className="container">
                         <img src={reactLogo} style={{width: 100}}/> <br />
                         This was rendered by App1, which is written in React.
                         <Counter 

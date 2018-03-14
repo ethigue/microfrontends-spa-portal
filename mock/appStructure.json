@@ -24,6 +24,13 @@
             "routesConfig": "http://localhost:4203/routes.json"
         },
         {
+            "appName": "app3",
+            "appUrl": "http://localhost:9002/main.js",
+            "baseUrl": "/app2",
+            "storeUrl": "http://localhost:9002/store.js",
+            "isDefaultPage": false
+        },
+        {
             "appName": "app1",
             "appUrl": "http://localhost:9001/main.js",
             "baseUrl": "/app1",
@@ -31,10 +38,10 @@
             "isDefaultPage": false
         },
         {
-            "appName": "app3",
-            "appUrl": "http://localhost:9002/main.js",
-            "baseUrl": "/app2",
-            "storeUrl": "http://localhost:9002/store.js",
+            "appName": "app4",
+            "appUrl": "http://localhost:9004/main.js",
+            "baseUrl": "/app1",
+            "storeUrl": null,
             "isDefaultPage": false
         }
 
